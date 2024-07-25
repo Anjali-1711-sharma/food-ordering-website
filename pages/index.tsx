@@ -6,12 +6,12 @@ import { useSelector } from "react-redux" ;
 import Image from "next/image";
 import cart from "../public/images/cart.png";
 import { streetFoods } from "../public/foodcategories";
-import icecream from "../public/images/icecream.png";
-import juice from "../public/images/juice.svg";
+import southIndian from "../public/images/southIndian/idli.jpeg";
+import juice from "../public/images/juices/mosambiJuice.jpeg";
 import meal from "../public/images/meal.png";
-import shake from "../public/images/shake.jpg";
-import sweets from "../public/images/sweets.jpg";
-import pizza from "../public/images/pizza.png";
+import shake from "../public/images/milkshakes/chocolateMilkshake.jpeg";
+import sweets from "../public/images/sweets/boondiLadoo.jpeg";
+import chinese from "../public/images/chinese/hotPot.jpeg";
 import deliverboy from "../public/images/deliveryboy.png";
 import { useEffect, useState } from "react";
 import { getProductList } from "../public/redux/productAction";
@@ -36,13 +36,14 @@ export default function Home() {
        <div className="bg-white w-screen h-screen relative overflow-scroll" >
        {/* header */}
        <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row absolute top-0">
+        <h1 className="absolute left-1/3 top-2 text-orange-800">Welcome to Anjali's Food Cornor</h1>
        <Link href="/checkout" className="absolute right-10 z-0 top-2">
        <Image src={cart} alt="cart" className="h-10 w-12 "/>
        </Link>
        <div className="h-6 w-6 rounded-full bg-red-400 text-white text-center z-8 absolute right-6">{cartData.length}</div>
       </div>
       {/* delivery template */}
-      <div className="h-1/6 w-1/4 absolute top-20 right-12  text-black bg-gradient-to-r from-pink-200 to-purple-300 rounded-lg">
+      <div className="h-1/6 w-1/4 absolute top-20 right-12  text-black rounded-lg bg-gradient-to-r from-pink-200 to-purple-300">
       <p className="absolute left-4 top-2">Enjoy our deliveries at </p>
       <p className="absolute left-4 top-8">just Rs.20</p>
       <Image src={deliverboy} alt="deliveryboy" className="h-28 w-16 absolute top-2 right-4"/>
@@ -72,13 +73,13 @@ export default function Home() {
         <Image src={shake} alt="shakes" className="h-28 w-28"/>
         <p>Shakes</p>
         </Link>
-        <Link href="/foods/icecreams" className="m-5 text-center">
-        <Image src={icecream} alt="icecream" className="h-28 w-28"/>
-        <p>Ice Creams</p>
+        <Link href="/foods/southIndian" className="m-5 text-center">
+        <Image src={southIndian} alt="icecream" className="h-28 w-28"/>
+        <p>South Indian</p>
         </Link>
-        <Link href="/foods/pizza" className="m-5 text-center">
-        <Image src={pizza} alt="pizza" className="h-28 w-28"/>
-        <p>Pizza</p>
+        <Link href="/foods/chinese" className="m-5 text-center">
+        <Image src={chinese} alt="chinese" className="h-28 w-28"/>
+        <p>Chinese</p>
         </Link>
         </div>
 

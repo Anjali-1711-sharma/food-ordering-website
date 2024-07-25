@@ -5,13 +5,18 @@ import mangoJuice from "./images/juices/mangoJuice.jpg";
 import orangeJuice from "./images/juices/orangeJuice.png";
 import pineappleJuice from "./images/juices/pineappleJuice.png";
 import watermelonJuice from "./images/juices/watermelonJuice.png";
+import kiwiJuice from "./images/juices/kiwiJuice.jpeg";
+import mosambiJuice from "./images/juices/mosambiJuice.jpeg";
 
 import besanLadoo from "./images/sweets/besanLadoo.jpg";
-import gulabJamun from "./images/sweets/gulabJamun.jpg";
+import gulabJamun from "./images/sweets/gulabJamun.jpeg";
 import jalebi from "./images/sweets/jalebi.jpeg";
 import kajukatli from "./images/sweets/kajukatli.jpeg";
 import rasgulla from "./images/sweets/rasgulla.jpeg";
 import rasmalai from "./images/sweets/rasmalai.jpg";
+import kalakand from "./images/sweets/kalakand.jpeg";
+import boondiLadoo from "./images/sweets/boondiLadoo.jpeg";
+import imarti from "./images/sweets/imarti.jpeg";
 
 import burger from "./images/streetFoods/burger.jpeg";
 import dahiPuri from "./images/streetFoods/dahiPuri.jpeg";
@@ -21,6 +26,47 @@ import paniPuri from "./images/streetFoods/paniPuri.jpeg";
 import pizza from "./images/streetFoods/pizza.jpeg";
 import samosa from "./images/streetFoods/samosa.jpeg";
 import vadaPav from "./images/streetFoods/vadaPav.jpeg";
+
+import blueberryMilkshake from "./images/milkshakes/blueberryMilkshake.jpeg";
+import chocolateMilkshake from "./images/milkshakes/chocolateMilkshake.jpeg";
+import grapesMilkshake from "./images/milkshakes/grapesMilkshake.jpeg";
+import guavaMilkshake from "./images/milkshakes/guavaMilkshake.jpeg";
+import mangoMilkshake from "./images/milkshakes/mangoMilkshake.jpeg";
+import oreoMilkshake from "./images/milkshakes/oreoMilkshake.jpeg";
+import papayaMilkshake from "./images/milkshakes/papayaMilkshake.jpeg";
+import strawberryMilkshake from "./images/milkshakes/strawberryMilkshake.jpeg";
+import vanillaMilkshake from "./images/milkshakes/vanillaMilkshake.jpeg";
+
+import chowmin from "./images/chinese/chowmin.jpeg";
+import friedRice from "./images/chinese/friedRice.jpeg";
+import hotPot from "./images/chinese/hotPot.jpeg";
+import manchurian from "./images/chinese/manchurian.jpeg";
+import springRolls from "./images/chinese/springRolls.jpeg";
+import vegetableSoups from "./images/chinese/vegetableSoups.jpeg";
+
+import appam from "./images/southIndian/Appam.jpeg";
+import meduVada from "./images/southIndian/meduVada.jpeg";
+import hyderabadiBiryani from "./images/southIndian/hyderabadiBiryani.jpeg";
+import idli from "./images/southIndian/idli.jpeg";
+import masalaDosa from "./images/southIndian/masalaDosa.jpeg";
+import plainDosa from "./images/southIndian/plainDosa.jpeg";
+import rasam from "./images/southIndian/rasam.jpeg";
+import uttapam from "./images/southIndian/uttapam.jpeg";
+import curdRice from "./images/southIndian/curdRice.jpeg";
+
+import dalMakhani from "./images/mainCourse/dalMakhni.jpeg";
+import dalTadka from "./images/mainCourse/dalTadka.jpeg";
+import jiraRice from "./images/mainCourse/jiraRice.jpeg";
+import matarPaneer from "./images/mainCourse/matarPaneer.jpeg";
+import mixDal from "./images/mainCourse/mixDal.jpeg";
+import paneerBhurji from "./images/mainCourse/paneerBhurji.jpeg";
+import paneerButterMasala from "./images/mainCourse/paneerButterMasala.jpeg";
+import paneerMasala from "./images/mainCourse/paneerMasala.jpeg";
+import plainDal from "./images/mainCourse/plainDal.jpeg";
+import plainRice from "./images/mainCourse/plainRice.jpeg";
+import vegBiryani from "./images/mainCourse/vegBiryani.jpeg";
+import vegPulao from "./images/mainCourse/vegPulao.jpeg";
+
 
 
 export const sweet=[
@@ -36,12 +82,12 @@ export const sweet=[
         "price":10,
         "img":gulabJamun
     },
-    // {
-    //     "id":3,
-    //     "name":"Rasmadhuri",
-    //     "price":15,
-    //     "img":""
-    // },
+    {
+        "id":3,
+        "name":"Kalakand",
+        "price":15,
+        "img":kalakand
+    },
     {
         "id":4,
         "name":"Rasmalai",
@@ -65,7 +111,19 @@ export const sweet=[
         "name":"Besan Ladoo",
         "price":6,
         "img":besanLadoo
-    }
+    },
+    {
+        "id":156,
+        "name":"Imarti",
+        "price":10,
+        "img":imarti
+    },
+    {
+        "id":157,
+        "name":"Boondi Ladoo",
+        "price":10,
+        "img":boondiLadoo
+    },
 ]
 export const juice=[
     {
@@ -110,162 +168,216 @@ export const juice=[
         "price":60,
         "img":coconutWater
     },
+    {
+        "id":132,
+        "name":"Kiwi Juice",
+        "price":70,
+        "img":kiwiJuice
+    },
+    {
+        "id":133,
+        "name":"Mosambi Juice",
+        "price":50,
+        "img":mosambiJuice
+    },
 ]
 export const shake=[
     {
       "id":14,
       "name":"Chocolate Milkshake",
       "price":50,
-      "img":""
+      "img":chocolateMilkshake
     },
     {
         "id":15,
         "name":"Strawberry Milkshake",
         "price":100,
-        "img":""
+        "img":strawberryMilkshake
     },
     {
         "id":16,
-        "name":"Grape Milkshake",
+        "name":"Grapes Milkshake",
         "price":60,
-        "img":""
+        "img":grapesMilkshake
     },
     {
         "id":17,
         "name":"Mango Milkshake",
         "price":50,
-        "img":""
+        "img":mangoMilkshake
     },
     {
         "id":18,
-        "name":"Papaya Milkshake",
+        "name":"Oreo Milkshake",
         "price":50,
-        "img":""
+        "img":oreoMilkshake
     },
     {
         "id":19,
         "name":"Bluberry Milkshake",
         "price":70,
-        "img":""
+        "img":blueberryMilkshake
+    },
+    {
+        "id":359,
+        "name":"Papaya Milkshake",
+        "price":50,
+        "img":papayaMilkshake
+    },
+    {
+        "id":360,
+        "name":"Guava Milkshake",
+        "price":40,
+        "img":guavaMilkshake
+    },
+    {
+        "id":361,
+        "name":"Vanilla Milkshake",
+        "price":40,
+        "img":vanillaMilkshake
     }
 ]
 export const meal=[
     {
-      "id":20,
-      "name":"Plain Dosa",
-      "price":50,
-      "img":""
+      "id":401,
+      "name":"Plain Rice",
+      "price":30,
+      "img":plainRice
     },
     {
-        "id":21,
-        "name":"Masala Dosa",
-        "price":60,
-        "img":""
-    },
-    {
-        "id":22,
-        "name":"Idli",
-        "price":40,
-        "img":""
-    },
-    {
-        "id":23,
-        "name":"Plain rice",
-        "price":30,
-        "img":""
-    },
-    {
-        "id":24,
+        "id":402,
         "name":"Jira Rice",
         "price":40,
-        "img":""
+        "img":jiraRice
     },
     {
-        "id":25,
+        "id":403,
+        "name":"Veg Pulao",
+        "price":60,
+        "img":vegPulao
+    },
+    {
+        "id":404,
+        "name":"Veg Biryani",
+        "price":80,
+        "img":vegBiryani
+    },
+    {
+        "id":405,
         "name":"Plain Dal",
-        "price":30,
-        "img":""
+        "price":40,
+        "img":plainDal
     },
     {
-        "id":26,
+        "id":406,
+        "name":"Dal Makhani",
+        "price":50,
+        "img":dalMakhani
+    },
+    {
+        "id":407,
         "name":"Dal Tadka",
         "price":50,
-        "img":""
+        "img":dalTadka
     },
     {
-        "id":27,
-        "name":"Plain Roti",
-        "price":10,
-        "img":""
+        "id":408,
+        "name":"Mix Dal",
+        "price":70,
+        "img":mixDal
     },
     {
-        "id":28,
+        "id":409,
+        "name":"Paneer Bhurji",
+        "price":40,
+        "img":paneerBhurji
+    },
+    {
+        "id":410,
         "name":"Paneer Masala",
-        "price":80,
-        "img":""
-    },
-    {
-        "id":29,
-        "name":"Samosa Chat",
-        "price":30,
-        "img":""
-    },
-    {
-        "id":30,
-        "name":"Tikki Chat",
-        "price":35,
-        "img":""
-    },
-    {
-        "id":31,
-        "name":"Pani Puri",
-        "price":20,
-        "img":""
-    },
-    {
-        "id":32,
-        "name":"Pizza",
-        "price":150,
-        "img":""
-    },
-    {
-        "id":33,
-        "name":"Burger",
-        "price":90,
-        "img":""
-    }
-]
-export const iceCream=[
-    {
-      "id":34,
-      "name":"Vanilla",
-      "price":30,
-      "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fcartoon-style-vanilla-ice-cream-with-sprinkle-vector-icon-isolated-white-background_112977-2479.jpg&tbnid=A_cJ9jtmHoou7M&vet=12ahUKEwiegaD7ho-EAxVgSmwGHRZ9CNwQMygPegQIARBc..i&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-vector%2Fcartoon-style-vanilla-ice-cream-with-sprinkle-vector-icon-isolated-white-background_16505984.htm&docid=s8qjltCoAXLAhM&w=626&h=626&q=vanilla%20ice%20cream%20image%20cartoon&ved=2ahUKEwiegaD7ho-EAxVgSmwGHRZ9CNwQMygPegQIARBc"
-    },
-    {
-        "id":35,
-        "name":"Strawberry",
         "price":50,
-        "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-vector%2Fice-cream-with-strawberries-glass-bowl_202271-2034.jpg&tbnid=G9TplXRHE8KUxM&vet=12ahUKEwiu7Y_ch4-EAxWKsWMGHb5aD0UQMygMegQIARBR..i&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-vector%2Fice-cream-with-strawberries-glass-bowl_20226632.htm&docid=l67jrgxmL7BW1M&w=626&h=626&q=strawberry%20ice%20cream%20image%20cartoon&ved=2ahUKEwiu7Y_ch4-EAxWKsWMGHb5aD0UQMygMegQIARBR"
+        "img":paneerMasala
     },
     {
-        "id":36,
-        "name":"Chocolate",
-        "price":30,
-        "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn5.vectorstock.com%2Fi%2F1000x1000%2F44%2F34%2Fchocolate-ice-cream-on-stick-icon-cartoon-style-vector-7994434.jpg&tbnid=OzgYkVRVbIgadM&vet=12ahUKEwiZ5pqFiI-EAxWPo2MGHeXFDqgQMyhAegUIARDQAQ..i&imgrefurl=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fchocolate-ice-cream-on-stick-icon-cartoon-style-vector-7994434&docid=I7ZsKBooIRx1qM&w=1000&h=1080&q=chocolate%20ice%20cream%20image%20cartoon&ved=2ahUKEwiZ5pqFiI-EAxWPo2MGHeXFDqgQMyhAegUIARDQAQ"
+        "id":411,
+        "name":"Paneer Butter Masala",
+        "price":65,
+        "img":paneerButterMasala
     },
     {
-        "id":37,
-        "name":"Orange Flavour",
-        "price":30,
-        "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fillustoon.com%2Fphoto%2F9763.png&tbnid=djhJoGlwV98ANM&vet=12ahUKEwi787W3iI-EAxUu8DgGHQcGArgQMygEegQIARA9..i&imgrefurl=https%3A%2F%2Fillustoon.com%2F%3Fid%3D9763&docid=RebTRxL8OKi99M&w=960&h=960&q=orange%20ice%20cream%20image%20cartoon&ved=2ahUKEwi787W3iI-EAxUu8DgGHQcGArgQMygEegQIARA9"
+        "id":412,
+        "name":"Matar Paneer",
+        "price":60,
+        "img":matarPaneer
     },
+    // {
+    //     "id":32,
+    //     "name":"Pizza",
+    //     "price":150,
+    //     "img":""
+    // },
+    // {
+    //     "id":33,
+    //     "name":"Burger",
+    //     "price":90,
+    //     "img":""
+    // }
+]
+export const southIndian=[
     {
-        "id":38,
-        "name":"Mango Flavour",
-        "price":20,
-        "img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.lovepik.com%2Ffree-png%2F20211207%2Flovepik-mango-ice-cream-png-image_401386293_wh1200.png&tbnid=PbQdWZNHeqnIAM&vet=12ahUKEwj39ujuiI-EAxWNj2MGHbM0Am8QMygtegUIARDHAQ..i&imgrefurl=https%3A%2F%2Flovepik.com%2Fimage-401386293%2Fmango-ice-cream.html&docid=MOU096OihfsjSM&w=1200&h=1200&q=mango%20ice%20cream%20image%20cartoon&ved=2ahUKEwj39ujuiI-EAxWNj2MGHbM0Am8QMygtegUIARDHAQ"
-    }
+        "id":501,
+        "name":"Appam",
+        "price":40,
+        "img": appam
+      },
+      {
+          "id":502,
+          "name":"Medu Vada",
+          "price":45,
+          "img":meduVada
+     },
+      {
+          "id":503,
+          "name":"Hyderabadi Biryani",
+          "price":100,
+          "img":hyderabadiBiryani
+      },
+      {
+          "id":504,
+          "name":"Idli",
+          "price":40,
+          "img":idli
+      },
+      {
+          "id":505,
+          "name":"Masala Dosa",
+          "price":60,
+          "img":masalaDosa
+      },
+      {
+          "id":506,
+          "name":"Plain Dosa",
+          "price":50,
+          "img":plainDosa
+      },
+      {
+          "id":507,
+          "name":"Rasam",
+          "price":40,
+          "img":rasam
+      },
+      {
+          "id":508,
+          "name":"Uttapam",
+          "price":60,
+          "img": uttapam
+      },
+      {
+          "id":509,
+          "name":"Curd Rice",
+          "price":60,
+          "img": curdRice
+      }
 ]
 export const streetFoods=[
     {
@@ -300,7 +412,7 @@ export const streetFoods=[
     },
     {
         "id":44,
-        "name":"Dumplings",
+        "name":"Momos",
         "price":40,
         "img":dumplings
     },
@@ -316,4 +428,60 @@ export const streetFoods=[
         "price":60,
         "img": burger
     }
+]
+export const chinese=[
+    {
+      "id":701,
+      "name":"Chowmin",
+      "price":40,
+      "img": chowmin
+    },
+    {
+        "id":702,
+        "name":"Fried Rice",
+        "price":45,
+        "img":friedRice
+   },
+    {
+        "id":703,
+        "name":"Chinese Hotpot",
+        "price":100,
+        "img":hotPot
+    },
+    {
+        "id":704,
+        "name":"Manchurian",
+        "price":40,
+        "img":manchurian
+    },
+    {
+        "id":705,
+        "name":"Spring Roll",
+        "price":60,
+        "img":springRolls
+    },
+    {
+        "id":706,
+        "name":"Vegetable Soup",
+        "price":50,
+        "img":vegetableSoups
+    },
+    {
+        "id":707,
+        "name":"Dumplings",
+        "price":40,
+        "img":dumplings
+    },
+    // {
+    //     "id":708,
+    //     "name":"Burger",
+    //     "price":60,
+    //     "img": burger
+    // },
+    // {
+    //     "id":709,
+    //     "name":"Burger",
+    //     "price":60,
+    //     "img": burger
+    // }
 ]

@@ -6,6 +6,7 @@ import Link from 'next/link';
 const Checkout =()=>{
   const result=useSelector((state)=>state);
   const [totalPrice,setTotalPrice] = useState(0);
+  const [proceedClicked,setProceedClicked] = useState(false);
   console.log("result",result);
   let items=new Object();
   result.cartData.map((data)=>{
@@ -48,16 +49,17 @@ const Checkout =()=>{
               )
             })}
           </div>
-          <div className="absolute bottom-8 start-1/3 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md">Proceed to Checkout</div>
+          <div className="absolute bottom-8 start-1/3 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md" >Proceed to Checkout</div>
         </div>
 
-        <div className="h-1/4 w-1/5  text-black absolute top-72 right-52 rounded-xl shadow-lg bg-purple-300 text-black">
-           <div className="absolute top-4 left-24">Checkout</div>
-           <div className="absolute top-16 left-8">SubTotal : {totalPrice}</div>
-           <div className="absolute top-24 left-8">Delivery Charge : Rs.20</div>
-           <div className="absolute top-32 left-8">Total : {totalPrice+20}</div>
-        </div>
-
+         <div className="h-1/4 w-1/5  text-black absolute top-72 right-52 rounded-xl shadow-lg bg-purple-300 text-black">
+          <div className="absolute top-4 left-24">Checkout</div>
+          <div className="absolute top-16 left-8">SubTotal : {totalPrice}</div>
+          <div className="absolute top-24 left-8">Delivery Charge : Rs.20</div>
+          <div className="absolute top-32 left-8">Total : {totalPrice+20}</div>
+          </div>
+        
+       
       {/* footer */}
        <Link href="/" className="absolute start-1/2 bottom-20 text-black rounded-lg pt-2 pb-2 pl-5 pr-5 bg-gradient-to-r from-rose-200 to-pink-400"> Back</Link>
 

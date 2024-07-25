@@ -31,7 +31,7 @@ const meals=()=>{
                     }
                     return(
                         <div className="w-80 h-80 rounded-md shadow-2xl ml-5 relative">
-                        {/* <Image src={drinks.img} alt={lunch.name} className="w-32 h-32 mx-auto mt-5" /> */}
+                        <Image src={lunch.img} alt={lunch.name} className="w-32 h-32 mx-auto mt-5" />
                         <div className="mt-4 text-center">{lunch.name}</div>
                         <div className="mt-2 text-center">Rs.{lunch.price} for one</div>
                         <div className="h-24 w-24 mx-auto mt-5">
