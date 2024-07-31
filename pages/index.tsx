@@ -1,118 +1,90 @@
-import { Inter } from "next/font/google";
-import { useDispatch } from "react-redux";
-import { addToCart,removeToCart } from "../public/redux/action";
-import Link from 'next/link';
-import { useSelector } from "react-redux" ;
-import Image from "next/image";
-import cart from "../public/images/cart.png";
-import { streetFoods } from "../public/foodcategories";
-import southIndian from "../public/images/southIndian/idli.jpeg";
-import juice from "../public/images/juices/mosambiJuice.jpeg";
-import meal from "../public/images/meal.png";
-import shake from "../public/images/milkshakes/chocolateMilkshake.jpeg";
-import sweets from "../public/images/sweets/boondiLadoo.jpeg";
-import chinese from "../public/images/chinese/hotPot.jpeg";
-import deliverboy from "../public/images/deliveryboy.png";
 import { useEffect, useState } from "react";
-import { getProductList } from "../public/redux/productAction";
+import Link from 'next/link';
+import axios from "axios";
+import { useRouter } from 'next/router';
+import { useSelector } from "react-redux" ;
+import ConfirmationModal from "./confirmationModal";
 
-const inter = Inter({ subsets: ["latin"] });
+const signUp=()=>{
 
-export default function Home() {
-  
-  const dispatch =useDispatch();
-  const result=useSelector((state:any)=>state);
+    const router = useRouter();
 
-  useEffect(()=>{
-    dispatch(getProductList()); //calling an api on page load ,not on btn click
-  },[dispatch]);
-  
-  const cartData = result.cartData ;
-  console.log("result",result);
-  
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const [userName,setUserName]=useState("");
+    const [mobile,setMobile]=useState("");
+    const [isUserCreated,setUserCreated]=useState(false);
+    const [redirectToHome,setRedirectToHome]=useState(false);
    
-    return (
-      <>
-       <div className="bg-white w-screen h-screen relative overflow-scroll" >
-       {/* header */}
-       <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row absolute top-0">
-        <h1 className="absolute left-1/3 top-2 text-orange-800">Welcome to Anjali's Food Cornor</h1>
-       <Link href="/checkout" className="absolute right-10 z-0 top-2">
-       <Image src={cart} alt="cart" className="h-10 w-12 "/>
-       </Link>
-       <div className="h-6 w-6 rounded-full bg-red-400 text-white text-center z-8 absolute right-6">{cartData.length}</div>
-      </div>
-      {/* delivery template */}
-      <div className="h-1/6 w-1/4 absolute top-20 right-12  text-black rounded-lg bg-gradient-to-r from-pink-200 to-purple-300">
-      <p className="absolute left-4 top-2">Enjoy our deliveries at </p>
-      <p className="absolute left-4 top-8">just Rs.20</p>
-      <Image src={deliverboy} alt="deliveryboy" className="h-28 w-16 absolute top-2 right-4"/>
-      </div>
+    useEffect(()=>{
+        if(isUserCreated){
+            setRedirectToHome(true);
+        }
+    },[isUserCreated]);
 
-      {/* food categories */}
-      <div className="absolute top-60 text-black shadow-md start-1/4 text-center " >
-        <div>WHAT'S ON YOUR MIND?</div>
+    useEffect(()=>{
+        if(redirectToHome){
+            setTimeout(()=>{
+            router.push('/home');
+            },2000);
+        }
+    },[redirectToHome,router]);
 
-        <div className="flex flex-row">
-        <Link href="/foods/juices" className="m-5 text-center">
-        <Image src={juice} alt="juice" className="h-28 w-28"/>
-        <p>Juices</p>
-        </Link>
-        <Link href="/foods/meals" className="m-5 text-center">
-         <Image src={meal} alt="meal" className="h-28 w-28"/>
-         <p>Meals</p>
-        </Link>
-        <Link href="/foods/sweets" className="m-5 text-center">
-        <Image src={sweets} alt="sweets" className="h-28 w-28"/>
-         <p> Sweets</p>
-        </Link>
+    const handleSubmit=async()=>{
+         // in get request ,we cannot pass body ,we pass data as query 
+         const data={
+            name : userName,
+            email : email,
+            password : password,
+            phone : mobile
+         }
+         try{
+            
+            const response = await axios({
+                method:"POST",
+                url: "/api/customers/createCustomer",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                data:JSON.stringify(data)
+            });
+            const { data : responseData, status, statusText } = response;
+            if(statusText == "Created" && status == 201){
+                setUserCreated(true);
+            }
+         } catch(error){
+             console.log("error in finding customer :",error);
+         }
+         
+    };
+   
+     return(
+        <div className=" w-screen h-screen relative overflow-scroll text-black flex items-center justify-center bg-gradient-to-r from-pink-200 to-purple-300"> 
+         { isUserCreated && <ConfirmationModal fromLogin={false}/> }
+        <div className={`w-screen h-screen flex items-center justify-center transition-opacity duration-500 ${isUserCreated ? 'bg-opacity-50' : 'bg-opacity-100'}`}>
+            <div className="h-2/3 w-80 sm:h-1/2 sm:w-1/2 lg:h-2/3 lg:w-1/3 xl:h-1/2 xl:w-1/3  rounded-lg shadow-2xl relative flex justify-center bg-white">
+
+                <div className="absolute top-8 text-xl">Create Your Account</div>
+
+                <div  className="absolute top-20 left-12">
+                <label>Your Name</label><br/>
+                <input type="text" id="userName" name="userName" value={userName} placeholder="Type your Name" onChange={(event)=>{setUserName(event.target.value)}}/> <br/>
+                <label>Mobile No.</label><br/>
+                <input type="tel" id="mobile" name="mobile" value={mobile} placeholder="Type your Mobile No." onChange={(event)=>{setMobile(event.target.value)}}/> <br/>
+                <label>Email</label><br/>
+                <input type="email" id="email" name="email" value={email} placeholder="Type your Email" onChange={(event)=>{setEmail(event.target.value)}}/> <br/>
+                <label>Password </label> <br/>
+                <input type="password" id="password" name="password" value={password} placeholder="Type Your Password" onChange={(event)=>{setPassword(event.target.value)}}/><br/>
+                </div>
+               
+                <button onClick={handleSubmit} className="absolute top-72 w-1/2 border-2 border-black rounded-lg bg-gradient-to-r from-pink-200 to-purple-300 text-white">Register</button>
+
+                <div className="absolute bottom-8 left-1/3  flex justify-center">
+                <h2>Already registered ? <Link href="/login" className="m-5 text-center text-sky-500"> Login </Link> </h2> 
+                </div>
+            </div>
         </div>
-
-        <div className="flex flex-row">
-        <Link href="/foods/shakes" className="m-5 text-center">
-        <Image src={shake} alt="shakes" className="h-28 w-28"/>
-        <p>Shakes</p>
-        </Link>
-        <Link href="/foods/southIndian" className="m-5 text-center">
-        <Image src={southIndian} alt="icecream" className="h-28 w-28"/>
-        <p>South Indian</p>
-        </Link>
-        <Link href="/foods/chinese" className="m-5 text-center">
-        <Image src={chinese} alt="chinese" className="h-28 w-28"/>
-        <p>Chinese</p>
-        </Link>
         </div>
-
-      </div>
-      
-      {/* street foods */}
-      {/* <div className="text-black absolut top-96">Enjoy our speciality at your home</div> */}
-      <div className="w-3/4 h-72 bg-slate-100 overflow-x-auto absolute top-3/4 flex flex-row text-black grid grid-cols-8 gap-x-72 ml-36 ">
-        {
-                streetFoods?.map((food)=>{
-
-                    const items={
-                        "id":food.id,
-                        "name": food.name,
-                        "price": food.price
-                    }
-                    return(
-                        <div className="w-60 h-60 rounded-md shadow-2xl m-5 relative" key={food.id}>
-                        <Image src={food.img} alt={food.name} className="w-24 h-24 mx-auto mt-5" />
-                        <div className="mt-2 text-center">{food.name}</div>
-                        <div className="mt-2 text-center">Rs.{food.price} for one</div>
-                        <div className="h-24 w-24 mx-auto mt-3">
-                        <button className="h-8 w-8  border-black border-2 text-center" onClick={()=>{ dispatch(addToCart(items)) }}> + </button>
-                        <button className="h-8 w-8  border-black border-2 text-center ml-4" onClick={()=>{ dispatch(removeToCart(items)) }}> - </button>
-                        </div>
-                        </div>
-                    )
-                })
-      }
-
-      </div>
-
-       </div>
-      </>
-  );
+     )
 }
+export default signUp;

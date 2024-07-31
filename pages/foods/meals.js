@@ -14,13 +14,14 @@ const meals=()=>{
         <div className="w-screen h-full bg-white text-black">
         {/* header */}
         <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row mt-0 relative">
-       <Link href="/" className="absolute left-8 top-2 text-black">Home</Link>
+       <Link href="/home" className="absolute left-8 top-2 text-black">Home</Link>
        <Link href="/checkout" className="absolute right-10 z-0 top-2">
        <Image src={cart} alt="cart" className="h-10 w-12 "/>
        </Link>
        <div className="h-6 w-6 rounded-full bg-red-400 text-white text-center z-8 absolute right-6">{cartData.length}</div>
        </div>
-        <div className="w-3/4 grid grid-cols-3 gap-2 mx-auto mt-10">
+       <div className="flex items-center justify-center mt-10">
+        <div className="w-3/4 grid grid-cols-3 gap-6">
         {
                 meal?.map((lunch)=>{
 
@@ -42,6 +43,7 @@ const meals=()=>{
                     )
                 })
        }
+        </div>
         </div>
         </div>
     )

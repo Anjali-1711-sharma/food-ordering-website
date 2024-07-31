@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux" ;
 import Link from 'next/link';
+import Proceed from "../pages/proceed";
+import { useRouter } from 'next/router';
 //import checkoutPage from "../public/images/checkoutPage";
 
 const Checkout =()=>{
+
+  const router = useRouter();
   const result=useSelector((state)=>state);
   const [totalPrice,setTotalPrice] = useState(0);
   const [proceedClicked,setProceedClicked] = useState(false);
+  const [redirectToHome,setRedirectToHome] = useState(false);
+
   console.log("result",result);
   let items=new Object();
   result.cartData.map((data)=>{
@@ -32,14 +38,23 @@ const Checkout =()=>{
   })
    useEffect(()=>{
      setTotalPrice(sum);
-   },[sum])
+   },[sum]);
+
+   useEffect(()=>{
+     if(redirectToHome){
+      router.push('/home');
+     }
+   },[redirectToHome]);
+
    console.log("result2",items);
     return(
       <div className="bg-white w-screen h-screen flex flex-row relative bg-[url('../public/images/checkoutPage.png')] bg-cover">
       
         <div className="h-1/2 w-1/3  text-black   absolute top-44 left-52 text-center rounded-2xl shadow-lg bg-gradient-to-r from-cyan-100 to-teal-200">
           <div className="absolute top-4 left-40">Items in your cart</div>
+
           <div className=" text-black flex flex-col w-3/4 absolute top-20 left-16">
+          { Object.keys(items).length === 0 ? <div> No items added in your cart</div> : null}
           {Object.entries(items).map((item)=>{
               return(
                 <div className="flex flex-row ">
@@ -49,7 +64,8 @@ const Checkout =()=>{
               )
             })}
           </div>
-          <div className="absolute bottom-8 start-1/3 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md" >Proceed to Checkout</div>
+
+          <div className="absolute bottom-8 start-1/3 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md" onClick={()=>{setProceedClicked(true)}}>Proceed to Checkout</div>
         </div>
 
          <div className="h-1/4 w-1/5  text-black absolute top-72 right-52 rounded-xl shadow-lg bg-purple-300 text-black">
@@ -61,10 +77,10 @@ const Checkout =()=>{
         
        
       {/* footer */}
-       <Link href="/" className="absolute start-1/2 bottom-20 text-black rounded-lg pt-2 pb-2 pl-5 pr-5 bg-gradient-to-r from-rose-200 to-pink-400"> Back</Link>
-
+       <Link href="/home" className="absolute start-1/2 bottom-20 text-black rounded-lg pt-2 pb-2 pl-5 pr-5 bg-gradient-to-r from-rose-200 to-pink-400"> Back</Link>
+       { proceedClicked ? <Proceed setProceedClicked={setProceedClicked} setRedirectToHome={setRedirectToHome}/> : null}
       
       </div>
     )
 }
-export default Checkout;
+export default Checkout; 

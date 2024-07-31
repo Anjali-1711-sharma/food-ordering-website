@@ -17,7 +17,7 @@ const southIndianFoods=()=>{
         <div className="w-screen h-full bg-white text-black">
         {/* header */}
        <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row mt-0 relative">
-       <Link href="/" className="absolute left-8 top-2 text-black">Home</Link>
+       <Link href="/home" className="absolute left-8 top-2 text-black">Home</Link>
        <Link href="/checkout" className="absolute right-10 z-0 top-2">
        <Image src={cart} alt="cart" className="h-10 w-12 "/>
        </Link>
