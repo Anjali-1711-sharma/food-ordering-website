@@ -3,7 +3,6 @@ import { useSelector } from "react-redux" ;
 import Link from 'next/link';
 import Proceed from "../pages/proceed";
 import { useRouter } from 'next/router';
-//import checkoutPage from "../public/images/checkoutPage";
 
 const Checkout =()=>{
 
@@ -46,41 +45,58 @@ const Checkout =()=>{
      }
    },[redirectToHome]);
 
-   console.log("result2",items);
+   console.log("result2",items);//bg-gradient-to-r from-cyan-100 to-teal-200
     return(
-      <div className="bg-white w-screen h-screen flex flex-row relative bg-[url('../public/images/checkoutPage.png')] bg-cover">
-      
-        <div className="h-1/2 w-1/3  text-black   absolute top-44 left-52 text-center rounded-2xl shadow-lg bg-gradient-to-r from-cyan-100 to-teal-200">
-          <div className="absolute top-4 left-40">Items in your cart</div>
+      <div className="bg-white w-screen h-screen  flex flex-col xl:flex-row overflow-y-auto flex  justify-center items-center bg-[url('../public/images/mealsPageImg.avif')] bg-cover bg-center">
+         {/* header */}
+          <div className="bg-white w-screen h-12 border-2 bg-grey-200  flex flex-row absolute top-0">
+            <h1 className="absolute left-1/3 top-2 text-red-600">Welcome to Checkout Page</h1>
+            <Link href="/home" className="absolute left-8 top-2 text-black">Home</Link>
+          </div>   
 
-          <div className=" text-black flex flex-col w-3/4 absolute top-20 left-16">
+        <div className="h-1/2 w-80 md:h-1/2 md:w-96 lg:h-1/2 lg:w-1/2 xl:h-1/2 xl:w-1/3  mt-20 xl:mt-0 flex flex-col items-center relative text-black  text-center rounded-2xl shadow-lg bg-gradient-to-r from-cyan-300 to-blue-400 ">
+          <div className="mt-4">Items in your cart</div>
+
+          
+          
+          <div className="text-black flex flex-col  max-h-48 sm:max-h-68 md:max-h-80 w-3/4 mt-8  overflow-y-auto">
           { Object.keys(items).length === 0 ? <div> No items added in your cart</div> : null}
-          {Object.entries(items).map((item)=>{
+            {Object.entries(items).map((item) => {
+              return (
+                <div key={item[0]} className="flex justify-between">
+                  <div className="whitespace-nowrap">{item[0]}</div>
+                  <div className="whitespace-nowrap">{item[1].count} * Rs. {item[1].price}</div>
+                </div>
+              );
+            })}
+         
+         
+          {/* {Object.entries(items).map((item)=>{
               return(
                 <div className="flex flex-row ">
                 <div >{item[0]}</div>
                 <div className="absolute start-3/4">{item[1].count} * Rs. {item[1].price}</div>
                 </div>
               )
-            })}
+            })} */}
           </div>
 
-          <div className="absolute bottom-8 start-1/3 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md" onClick={()=>{setProceedClicked(true)}}>Proceed to Checkout</div>
+          <div className="w-60 absolute bottom-4 bg-yellow-300 pt-2 pb-2 pl-2 pr-2 text-black rounded-md shadow-md" onClick={()=>{setProceedClicked(true)}}>Proceed to Checkout</div>
         </div>
 
-         <div className="h-1/4 w-1/5  text-black absolute top-72 right-52 rounded-xl shadow-lg bg-purple-300 text-black">
-          <div className="absolute top-4 left-24">Checkout</div>
-          <div className="absolute top-16 left-8">SubTotal : {totalPrice}</div>
-          <div className="absolute top-24 left-8">Delivery Charge : Rs.20</div>
-          <div className="absolute top-32 left-8">Total : {totalPrice+20}</div>
+         <div className="h-52 w-52 md:h-60 md:w-60 lg:h-60 lg:w-80 ml-8 mt-5 mb-4 xl:mt-0 xl:mb-0 text-black  rounded-xl shadow-lg bg-gradient-to-r from-emerald-300 to-teal-200 text-black ">
+         
+            <div className="text-center mt-4">Checkout</div>
+            <ul className="ml-4 mt-4">
+              <li>SubTotal : {totalPrice}</li>
+              <li>Delivery Charge : Rs.20</li>
+              <li>Total : {totalPrice+20}</li>
+            </ul>
           </div>
-        
-       
-      {/* footer */}
-       <Link href="/home" className="absolute start-1/2 bottom-20 text-black rounded-lg pt-2 pb-2 pl-5 pr-5 bg-gradient-to-r from-rose-200 to-pink-400"> Back</Link>
+
        { proceedClicked ? <Proceed setProceedClicked={setProceedClicked} setRedirectToHome={setRedirectToHome}/> : null}
       
       </div>
     )
 }
-export default Checkout; 
+export default Checkout; //bg-[url('../public/images/checkoutPage.png')] bg-cover

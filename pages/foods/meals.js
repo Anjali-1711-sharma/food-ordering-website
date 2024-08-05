@@ -6,12 +6,13 @@ import Image from "next/image";
 import Link from 'next/link';
 import cart from "../../public/images/cart.png";
 
+
 const meals=()=>{
     const dispatch =useDispatch();
     const result=useSelector((state)=>state);
     const cartData = result.cartData ;
     return(
-        <div className="w-screen h-full bg-white text-black">
+        <div className="w-screen h-full bg-white text-black ">
         {/* header */}
         <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row mt-0 relative">
        <Link href="/home" className="absolute left-8 top-2 text-black">Home</Link>

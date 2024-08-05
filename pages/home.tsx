@@ -32,9 +32,9 @@ const Home = () =>{
   
    
     return (
-       <div className="bg-white w-screen min-h-screen  flex flex-col items-center" >
+       <div className="bg-white w-screen min-h-screen  flex flex-col items-center bg-[url('../public/images/homePageImg.avif')] bg-cover bg-center" >
        {/* header */}
-       <div className="w-screen h-12 border-2 bg-grey-200  flex flex-row absolute top-0">
+       <div className="bg-white w-screen h-12 border-2 bg-grey-200  flex flex-row absolute top-0">
         <h1 className="absolute left-1/3 top-2 text-red-600">Welcome to Anjali's Food Cornor</h1>
        <Link href="/checkout" className="absolute right-10 z-0 top-2">
        <Image src={cart} alt="cart" className="h-10 w-12 "/>
@@ -50,7 +50,7 @@ const Home = () =>{
 
 
       {/* food categories */}
-      <div className="text-black shadow-md text-center mt-52" >
+      <div className="bg-stone-100 text-black shadow-md text-center mt-52" >
         <div>WHAT'S ON YOUR MIND?</div>
 
         <div className="flex flex-row">
